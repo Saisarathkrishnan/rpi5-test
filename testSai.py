@@ -5,14 +5,12 @@ import cv2
 app = Flask(__name__)
 
 tuning_data = Picamera2.load_tuning_file("/home/mrm/xxx.json")
-# Initialize camera without custom tuning file
 picam2 = Picamera2(tuning=tuning_data)
-# Comment out custom tuning file to test default
 
 config = picam2.create_preview_configuration(main={"format": "RGB888", "size": (1000, 1000)})
 picam2.configure(config)
 picam2.start()
-print("Camera started with default tuning!")
+print("Camera works")
 
 def generate_frames():
     while True:
